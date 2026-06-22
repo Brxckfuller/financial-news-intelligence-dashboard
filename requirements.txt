@@ -1,0 +1,11 @@
+pandas
+numpy
+streamlit
+altair
+feedparser
+requests
+transformers
+torch
+torchvision
+sentence-transformers
+scikit-learn
