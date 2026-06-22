@@ -8,6 +8,18 @@ The system automatically collects headlines from multiple financial news sources
 
 The project was developed as a practical exercise in building an end-to-end AI pipeline rather than training a custom model. The focus was on data ingestion, NLP workflows, semantic search, automation and dashboard development.
 
+
+## How to Run
+
+pip install -r requirements.txt
+python app/ingest.py
+python app/analyse.py
+python app/semantic_search.py
+streamlit run app/dashboard.py
+
+
+
+
 ## Technical Highlights
 
 - Aggregates news from MarketWatch, CNBC, Yahoo Finance, Nasdaq and Investing.com RSS feeds
