@@ -1,5 +1,7 @@
 # Financial News Intelligence Dashboard
 
+![Dashboard Overview](screenshots/dashboard_overview.png)
+
 This project was built to explore how modern NLP techniques can be applied to financial news monitoring.
 
 The system automatically collects headlines from multiple financial news sources, analyses sentiment using FinBERT, generates semantic embeddings with Sentence Transformers, and surfaces emerging themes through clustering and interactive visualisations.
