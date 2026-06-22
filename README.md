@@ -11,11 +11,50 @@ The project was developed as a practical exercise in building an end-to-end AI p
 
 ## How to Run
 
+### Step 1: Clone the repository
+
+```bash
+git clone https://github.com/Brxckfuller/financial-news-intelligence-dashboard.git
+cd financial-news-intelligence-dashboard
+```
+
+### Step 2: Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
+
+### Step 3: Collect the latest financial news
+
+```bash
 python app/ingest.py
+```
+
+### Step 4: Run sentiment analysis
+
+```bash
 python app/analyse.py
+```
+
+### Step 5: Generate semantic embeddings
+
+```bash
 python app/semantic_search.py
+```
+
+### Step 6: Launch the dashboard
+
+```bash
 streamlit run app/dashboard.py
+```
+
+### Step 7: Open the dashboard
+
+Navigate to:
+
+```text
+http://localhost:8501
+```
 
 
 
