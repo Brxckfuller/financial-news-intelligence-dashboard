@@ -1,92 +1,164 @@
 # Financial News Intelligence Dashboard
 
-![Dashboard Overview](screenshots/dashboard_overview.png)
+A financial news analytics dashboard built with Python, FinBERT, Sentence Transformers and Streamlit.
 
-This project was built to explore how modern NLP techniques can be applied to financial news monitoring.
+The project collects recent financial headlines from RSS feeds, analyses market sentiment, creates semantic embeddings, and displays the results in an interactive dashboard.
 
-The system automatically collects headlines from multiple financial news sources, analyses sentiment using FinBERT, generates semantic embeddings with Sentence Transformers, and surfaces emerging themes through clustering and interactive visualisations.
-
-The project was developed as a practical exercise in building an end-to-end AI pipeline rather than training a custom model. The focus was on data ingestion, NLP workflows, semantic search, automation and dashboard development.
+It was built to practise an end-to-end NLP workflow: data ingestion, cleaning, sentiment classification, semantic search, clustering and dashboard development.
 
 
-## How to Run
+---
 
-### Step 1: Clone the repository
+## What it does
+
+- Collects financial headlines from multiple RSS feeds
+- Cleans and deduplicates market news
+- Uses FinBERT to classify headlines as bullish, bearish or neutral
+- Generates semantic embeddings using Sentence Transformers
+- Supports semantic headline search
+- Groups related headlines into market themes
+- Tracks sentiment history across pipeline runs
+- Presents results in a Streamlit dashboard
+
+---
+
+## Pipeline
+
+```text
+RSS Feeds
+   │
+   ▼
+Headline Collection
+   │
+   ▼
+Cleaning and Deduplication
+   │
+   ├───────────────┐
+   ▼               ▼
+FinBERT       Sentence Transformers
+   │               │
+   ▼               ▼
+Sentiment      Embeddings
+   │               │
+   └───────┬───────┘
+           ▼
+     Topic Clustering
+           │
+           ▼
+   Streamlit Dashboard
+```
+
+---
+
+## Models used
+
+- **FinBERT** for financial sentiment classification
+- **Sentence Transformers** for semantic headline embeddings
+- **K-Means** for clustering related market themes
+
+---
+
+## Tech stack
+
+- Python
+- Pandas
+- Streamlit
+- FinBERT
+- Sentence Transformers
+- scikit-learn
+- RSS feed parsing
+
+---
+
+## How to run
+
+Clone the repository:
 
 ```bash
 git clone https://github.com/Brxckfuller/financial-news-intelligence-dashboard.git
 cd financial-news-intelligence-dashboard
 ```
 
-### Step 2: Install dependencies
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 3: Collect the latest financial news
+Collect the latest financial news:
 
 ```bash
 python app/ingest.py
 ```
 
-### Step 4: Run sentiment analysis
+Run sentiment analysis:
 
 ```bash
 python app/analyse.py
 ```
 
-### Step 5: Generate semantic embeddings
+Generate semantic embeddings:
 
 ```bash
 python app/semantic_search.py
 ```
 
-### Step 6: Launch the dashboard
+Launch the dashboard:
 
 ```bash
 streamlit run app/dashboard.py
 ```
 
-### Step 7: Open the dashboard
-
-Navigate to:
+The app will open at:
 
 ```text
 http://localhost:8501
 ```
 
+---
 
+## Project structure
 
+```text
+financial-news-intelligence-dashboard/
 
-## Technical Highlights
+├── app/
+│   ├── ingest.py
+│   ├── analyse.py
+│   ├── semantic_search.py
+│   ├── scheduled_pipeline.py
+│   └── dashboard.py
+│
+├── data/
+│   ├── news.csv
+│   ├── analysed_news.csv
+│   ├── sentiment_history.csv
+│   └── headline_embeddings.npy
+│
+├── screenshots/
+│   └── dashboard_overview.png
+│
+├── requirements.txt
+└── README.md
+```
 
-- Aggregates news from MarketWatch, CNBC, Yahoo Finance, Nasdaq and Investing.com RSS feeds
-- Filters and deduplicates market-relevant headlines
-- Applies FinBERT sentiment classification to generate bullish, bearish and neutral signals
-- Generates semantic embeddings using all-MiniLM-L6-v2
-- Implements semantic headline search and related-headline recommendations
-- Uses K-Means clustering to identify emerging market themes
-- Tracks sentiment history across pipeline runs
-- Presents results through an interactive Streamlit dashboard
+---
 
-## Project Structure
+## Example use case
 
-app/
-- ingest.py
-- analyse.py
-- semantic_search.py
-- dashboard.py
-- scheduled_pipeline.py
+A user can search for a market theme such as:
 
-data/
-- news.csv
-- analysed_news.csv
-- sentiment_history.csv
-- headline_embeddings.npy
+```text
+AI stocks
+```
 
-## Author
+or
 
-Brock Fuller
+```text
+interest rates
+```
 
-Master of Artificial Intelligence – RMIT University
+The dashboard returns semantically related headlines rather than relying only on exact keyword matches.
+
+---
+
